@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
@@ -99,7 +100,11 @@ public class MainActivity extends AppCompatActivity implements ToneThread.ToneCa
             @Override
             public void run() {
 
-                recv_tone.PreRequest();
+                try {
+                    recv_tone.PreRequest();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
 
             }
         });
